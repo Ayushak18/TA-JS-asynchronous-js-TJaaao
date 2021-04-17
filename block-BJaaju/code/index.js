@@ -17,17 +17,24 @@ xhr.onload = () => {
 xhr.send();
 
 inputBar.addEventListener('keyup', (event) => {
+  let inputBarValue = event.target.value;
   if (event.key === 'Enter' && inputBar.value) {
     xhr.open(
       'GET',
-      'https://api.unsplash.com/photos/?client_id=0Fqxl8oZYm7DxTGGq604f56958LfUP_2NkfQLrW4-hE/search/collections?page=1&query=office'
+      `https://api.unsplash.com/search/photos?query=${inputBarValue}&client_id=0Fqxl8oZYm7DxTGGq604f56958LfUP_2NkfQLrW4-hE`
     );
     xhr.onload = () => {
-      console.log(xhr.response);
+      imageSection.innerHTML = '';
+      let imgData = JSON.parse(xhr.response);
+      //   console.log(imgData.results[0].urls.full);
+      imgData.results.forEach((image) => {
+        let imgTag = document.createElement('img');
+        imgTag.src = image.urls.full;
+        imageSection.append(imgTag);
+      });
     };
 
     xhr.send();
+    event.target.value = '';
   }
 });
-
-// xhr.open('GET')
