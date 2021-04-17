@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+}
+
+header {
+  background: #64b7ff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+header input {
+  padding: 10px 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+header h1 {
+  margin: 20px 0;
+}
+
+.images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.images img {
+  margin: 20px 10px;
+  width: 500px;
+}
+/*# sourceMappingURL=style.css.map */
