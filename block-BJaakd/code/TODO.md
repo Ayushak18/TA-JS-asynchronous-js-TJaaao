@@ -32,8 +32,8 @@ console.log('D');
 // Output
 // A
 // D
-// B
 // C
+// B
 ```
 
 5. Write a function named `wait` that accepts `time` in ms returns a promise. The promise gets resolved after given time.
