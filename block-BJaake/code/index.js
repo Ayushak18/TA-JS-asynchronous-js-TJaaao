@@ -1,9 +1,18 @@
 let rootElement = document.querySelector('.news');
 let drop = document.querySelector('.drop-down');
+let allNews = [];
 
 drop.addEventListener('change', (event) => {
-  if (event.target.value === 'All') {
-  }
+  rootElement.innerHTML = '';
+  allNews.filter((data) => {
+    data.filter((agency) => {
+      if (agency.newsSite === event.target.value) {
+        createUI(agency.title, agency.url, agency.imageUrl, agency.newsSite);
+      } else if (event.target.value === 'All') {
+        createUI(agency.title, agency.url, agency.imageUrl, agency.newsSite);
+      }
+    });
+  });
 });
 
 function createUI(title, url, imgURL, newsSite) {
@@ -41,6 +50,7 @@ function createUI(title, url, imgURL, newsSite) {
 fetch('https://test.spaceflightnewsapi.net/api/v2/articles?_limit=30')
   .then((res) => res.json())
   .then((space) => {
+    allNews.push(space);
     space.forEach((article) => {
       createUI(article.title, article.url, article.imageUrl, article.newsSite);
     });
