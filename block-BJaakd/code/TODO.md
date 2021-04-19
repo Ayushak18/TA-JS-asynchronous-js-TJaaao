@@ -28,6 +28,12 @@ setTimeout(() => console.log('B'), 0); // callback queue
 Promise.resolve().then(() => console.log('C'));
 
 console.log('D');
+
+// Output
+// A
+// D
+// B
+// C
 ```
 
 5. Write a function named `wait` that accepts `time` in ms returns a promise. The promise gets resolved after given time.
@@ -84,6 +90,8 @@ console.log('D');
 ```
 
 10. Try to understand the difference between the problem 8 and 9. Write your observation.
+
+<!-- It is just return the same value which is return by Promise in the first time after getting resolved -->
 
 11. Do the following
 
