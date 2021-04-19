@@ -98,6 +98,16 @@ secondFirst.then((data) => {
   return 4;
 });
 
-// let ayush = new Promise((res, rej) => {
-//   res('John');
-// }).then();
+let ayush = new Promise((res, rej) => {
+  res('John');
+})
+  .then((value) => {
+    return Promise.resolve('Arya');
+  })
+  .then((v) => {
+    console.log(v);
+    return new Promise((res, rej) => {
+      setTimeout(() => res('Bran'), 1000);
+    });
+  })
+  .then(console.log);
