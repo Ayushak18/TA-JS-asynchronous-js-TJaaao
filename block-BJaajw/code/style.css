@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 600px;
+  height: 400px;
+}
+
+header {
+  background: #6dbbff;
+  padding: 20px 0;
+}
+
+header h1 {
+  color: white;
+}
+
+.article {
+  margin: 20px 50px;
+}
+
+.article p,
+.article a {
+  font-size: 20px;
+}
+
+.drop-down {
+  padding: 30px 0;
+}
+
+.drop-down label {
+  font-size: 22px;
+}
+
+.drop-down select {
+  font-size: 16px;
+  padding: 5px 7px;
+  margin-left: 10px;
+}
+/*# sourceMappingURL=style.css.map */
