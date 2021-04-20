@@ -32,3 +32,5 @@ Promise.all([
   { name: 'John' },
 ]).then(console.log);
 ```
+
+<!-- It will take little bit more time than 1 second-->
