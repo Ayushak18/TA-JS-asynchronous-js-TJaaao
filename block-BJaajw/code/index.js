@@ -2,6 +2,15 @@ let rootElement = document.querySelector('.news');
 let drop = document.querySelector('.drop-down');
 let allNews = [];
 
+// function handleSpinner(status) {
+//   if (status) {
+//     // let donut = document.createElement('div');
+//     // donut.classList = 'donut';
+//     // rootElement.append(donut);
+//     rootElement.innerHTML = '<div class="donut"></div>';
+//   }
+// }
+
 drop.addEventListener('change', (event) => {
   rootElement.innerHTML = '';
   allNews.filter((data) => {
@@ -47,20 +56,32 @@ function createUI(title, url, imgURL, newsSite) {
   rootElement.append(article);
 }
 
-fetch('https://test.spaceflightnewsapi.net/api/v2/articles?_limit=30')
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error();
-    }
-  })
-  .then((space) => {
-    allNews.push(space);
-    space.forEach((article) => {
-      createUI(article.title, article.url, article.imageUrl, article.newsSite);
+function init() {
+  fetch('https://test.spaceflightnewsapi.net/api/v2/articles?_limit=30')
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error();
+      }
+    })
+    .then((space) => {
+      // handleSpinner(false);
+      allNews.push(space);
+      space.forEach((article) => {
+        // handleSpinner(false);
+        createUI(
+          article.title,
+          article.url,
+          article.imageUrl,
+          article.newsSite
+        );
+      });
+    })
+    .catch(() => {
+      rootElement.innerText = 'Error happened';
     });
-  })
-  .catch(() => {
-    rootElement.innerText = 'Error happened';
-  });
+}
+// handleSpinner(true);
+init();
+// handleSpinner(false);
