@@ -45,11 +45,13 @@ let userNamePro = Promise.all(
 
 // Third Problem
 
-let apiArr = ['https://random.dog/woof.json', 'https://aws.random.cat/meow'];
-
-let raceApi = Promise.race([apiArr[0], apiArr[1]]).then((data) =>
-  console.log(data)
+let promiseOne = fetch('https://random.dog/woof.json').then((res) =>
+  res.json()
 );
+
+let promiseTwo = fetch('https://aws.random.cat/meow').then((res) => res.json());
+
+Promise.race([promiseOne, promiseTwo]).then((data) => console.log(data));
 
 // Forth Problem
 
